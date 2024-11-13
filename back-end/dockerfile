@@ -1,0 +1,20 @@
+# Usa a imagem base node:14, ideal para aplicações Node.js
+FROM node:14
+
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copia os arquivos de dependências (package.json e package-lock.json) para o contêiner
+COPY package*.json ./
+
+# Instala as dependências da aplicação
+RUN npm install
+
+# Copia todo o código da aplicação para o contêiner
+COPY . .
+
+# Expõe a porta 5000, onde o Express irá servir a aplicação
+EXPOSE 5000
+
+# Define o comando padrão para iniciar o servidor
+CMD ["node", "index.js"]
