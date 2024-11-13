@@ -20,15 +20,15 @@ jobs:
 
       - name: Build and push front-end Docker image
         run: |
-          docker build -t myusername/frontend:latest -f ./frontend/Dockerfile ./frontend
-          docker push myusername/frontend:latest
+          docker build -t myusername/front-end:latest -f ./front-end/Dockerfile ./front-end
+          docker push myusername/front-end:latest
 
       - name: Build and push back-end Docker image
         run: |
-          docker build -t myusername/backend:latest -f ./backend/Dockerfile ./backend
-          docker push myusername/backend:latest
+          docker build -t myusername/back-end:latest -f ./back-end/Dockerfile ./back-end
+          docker push myusername/back-end:latest
 
       - name: Build and push database Docker image
         run: |
-          docker build -t myusername/database:latest -f ./database/Dockerfile ./database
-          docker push myusername/database:latest
+          docker build -t myusername/data-base:latest -f ./data-base/Dockerfile ./data-base
+          docker push myusername/data-base:latest
