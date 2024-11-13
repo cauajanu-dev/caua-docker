@@ -18,10 +18,10 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build front-end Docker image
-        run: docker build -t frontend-image -f ./frontend/Dockerfile ./frontend
+        run: docker build -t front-end-image -f ./front-end/Dockerfile ./front-end
 
       - name: Run front-end tests
-        run: docker run frontend-image npm test
+        run: docker run front-end-image npm test
 
   back-end:
     runs-on: ubuntu-latest
@@ -33,10 +33,10 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build back-end Docker image
-        run: docker build -t backend-image -f ./backend/Dockerfile ./backend
+        run: docker build -t back-end-image -f ./back-end/Dockerfile ./back-end
 
       - name: Run back-end tests
-        run: docker run backend-image npm test
+        run: docker run back-end-image npm test
 
   database:
     runs-on: ubuntu-latest
@@ -48,4 +48,4 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build database Docker image
-        run: docker build -t database-image -f ./database/Dockerfile ./database
+        run: docker build -t data-base-image -f ./data-base/Dockerfile ./data-base
